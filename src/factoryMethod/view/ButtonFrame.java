@@ -1,21 +1,22 @@
 package factoryMethod.view;
 
-import factoryMethod.ui.ButtonFactory;
-import factoryMethod.ui.ButtonType;
+import factoryMethod.ui.*;
 import factoryMethod.ui.Interfaces.UiButton;
+import factoryMethod.ui.Interfaces.UiFactory;
 
 import javax.swing.*;
 
 public class ButtonFrame extends JFrame {
     public ButtonFrame() {
-        ButtonFactory factory = new ButtonFactory();
+        UiFactory confirmButtonCreator = new ConfirmFactory();
+        UiFactory cancelButtonCreator = new CancelFactory();
 
-        UiButton confirmButtonCreator = factory.getButton(ButtonType.CONFIRMAR);
-        UiButton cancelButtonCreator = factory.getButton(ButtonType.CANCELAR);
+        UiButton confirmButton = confirmButtonCreator.createUiButton();
+        UiButton cancelButton = cancelButtonCreator.createUiButton();
 
         JPanel panel = new JPanel();
-        panel.add(confirmButtonCreator.createButton());
-        panel.add(cancelButtonCreator.createButton());
+        panel.add(confirmButton.getButton());
+        panel.add(cancelButton.getButton());
 
         this.add(panel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
