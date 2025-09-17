@@ -1,6 +1,6 @@
-package factoryMethod.ui;
+package singleton.ui;
 
-import factoryMethod.ui.Interfaces.UiButton;
+import singleton.ui.Interfaces.UiButton;
 
 import javax.swing.*;
 import java.awt.*;
